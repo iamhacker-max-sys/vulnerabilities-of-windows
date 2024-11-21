@@ -1,0 +1,15 @@
+CVE-2021-36934 – Windows Elevation of Privilege Vulnerability (HiveNightmare)
+CVE-2021-34484 – Windows MSHTML Remote Code Execution Vulnerability
+CVE-2021-36948 – Windows Event Tracing Elevation of Privilege Vulnerability
+CVE-2021-24092 – Windows Installer Elevation of Privilege Vulnerability
+CVE-2021-31979 – Windows Graphics Component Remote Code Execution Vulnerability
+CVE-2021-33742 – Windows Print Spooler Elevation of Privilege Vulnerability (PrintNightmare)
+CVE-2021-26424 – Windows Media Player Remote Code Execution Vulnerability
+CVE-2021-36946 – Windows Windows Subsystem for Linux Elevation of Privilege Vulnerability
+CVE-2021-22933 – Windows Hyper-V Elevation of Privilege Vulnerability
+CVE-2022-21999 – Windows SMBv3 Remote Code Execution Vulnerability (SMBGhost)
+CVE-2021-41330 – Windows Kerberos Elevation of Privilege Vulnerability
+CVE-2021-33739 – Windows DNS Server Remote Code Execution Vulnerability
+CVE-2021-36958 – Windows TCP/IP Remote Code Execution Vulnerability (Bad Neighbor)
+CVE-2021-38168 – Windows NTFS Elevation of Privilege Vulnerability
+CVE-2021-22005 – VMware vCenter Server Remote Code Execution Vulnerability affecting Windows-based systems
